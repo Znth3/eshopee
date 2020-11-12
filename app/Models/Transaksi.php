@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Barang extends Model
+class Transaksi extends Model
 {
     use HasFactory;
 
-    protected $table = "barang";
-
-    public function kategori(){
-        return $this->belongsTo('App\Models\Kategori');
-    }
+    protected $table = 'transaksi';
+    public $timestamps = false;
 
     public function transaksiDetils(){
         return $this->hasMany('App\Models\TransaksiDetil');
