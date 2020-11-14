@@ -16,15 +16,19 @@ class TransaksiDetilSeeder extends Seeder
      */
     public function run()
     {
-        $transaksis = Transaksi::factory(10)->create();
-        $barangs = Barang::factory(10)->create();
+
+        $transaksis = Transaksi::factory(5)->create();
+        $barangs = Barang::factory(5)->create();
 
         foreach ($transaksis as $transaksi){
-            TransaksiDetil::factory(10)->create(['transaksi_id' => $transaksi->id]);
+            foreach ($barangs as $barang){
+                TransaksiDetil::factory(5)->create([
+                    'barang_id' => $barang->id
+                    , 'transaksi_id' => $transaksi->id
+                ]);
+            }
         }
 
-        foreach ($barangs as $barang){
-            TransaksiDetil::factory(10)->create(['barang_id' => $barang->id]);
-        }
+
     }
 }

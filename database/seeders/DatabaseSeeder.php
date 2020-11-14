@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TransaksiDetil;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,5 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            TransaksiDetilSeeder::class
+        ]);
     }
 }
